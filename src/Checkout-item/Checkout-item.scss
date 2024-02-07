@@ -1,0 +1,27 @@
+.my-table {
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  .quantity {
+    display: flex;
+    align-items: center;
+
+    .arrow {
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+    }
+  }
+  .remove-button {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
