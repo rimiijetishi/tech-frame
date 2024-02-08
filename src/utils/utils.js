@@ -1,41 +1,49 @@
 export const generateInvoices = (items) => {
   const invoices = [];
+  let uninvoicedItems = [];
   let ongoingInvoice = null;
-  let uninvoicedItems = []; // Declare uninvoicedItems here
 
-  for (const item of items) {
-    if (item.priceWithVat >= 500) {
-      for (let i = 0; i < item.quantity; i++) {
-        invoices.push({
-          id: Math.floor(Math.random() * 1000),
-          items: [{
-            ...item,
-            quantity: 1,
-          }],
-          totalPrice: item.priceWithVat,
-          subTotalPrice: item.price - item.discount,
-        });
+  function invoiceGenerator(items) {
+    items.forEach((item) => {
+      if (item.priceWithVat >= 500) {
+        for (let i = 0; i < item.quantity; i++) {
+          invoices.push({
+            id: new Date().getTime(),
+            items: [{
+              ...item,
+              quantity: 1,
+            }],
+            totalPrice: item.priceWithVat,
+            subTotalPrice: item.price - item.discount,
+          });
+        }
+        return;
       }
-      continue;
+
+      if (!ongoingInvoice || ongoingInvoice.totalPrice >= 500) {
+        ongoingInvoice = {
+          id: new Date().getTime(),
+          items: [],
+          totalPrice: 0,
+          subTotalPrice: 0, // Added subTotalPrice initialization
+        };
+      }
+
+      addItemsInInvoice(item);
+    });
+
+    if (ongoingInvoice && ongoingInvoice.items.length > 0) {
+      invoices.push({ ...ongoingInvoice });
+      ongoingInvoice = null; // Reset ongoingInvoice after pushing
     }
 
-    if (!ongoingInvoice || ongoingInvoice.totalPrice >= 500) {
-      ongoingInvoice = {
-        id: Math.floor(Math.random() * 1000),
-        items: [],
-        totalPrice: 0,
-        subTotalPrice: 0,
-      };
+    if (uninvoicedItems.length > 0) {
+      // Copy the uninvoicedItems array before recursion
+      const newItems = [...uninvoicedItems];
+      uninvoicedItems = [];
+      invoiceGenerator(newItems);
     }
-
-    addItemsInInvoice(item);
   }
-
-  if (ongoingInvoice && ongoingInvoice.items.length > 0) {
-    invoices.push(ongoingInvoice);
-  }
-
-  return invoices;
 
   function addItemsInInvoice(item) {
     for (let i = 0; i < item.quantity; i++) {
@@ -58,9 +66,9 @@ export const generateInvoices = (items) => {
         ongoingInvoice.totalPrice += parseFloat(item.priceWithVat);
         ongoingInvoice.subTotalPrice += parseFloat(item.price - item.discount);
       } else {
-        invoices.push({ ...ongoingInvoice });
+        invoices.push(ongoingInvoice );
         ongoingInvoice = {
-          id:Math.floor(Math.random() * 1000),
+          id: new Date().getTime(),
           items: [{
             ...item,
             quantity: 1,
@@ -89,4 +97,9 @@ export const generateInvoices = (items) => {
       return false;
     }
   }
+
+  invoiceGenerator(items); // Initial call
+  return invoices;
 };
+
+

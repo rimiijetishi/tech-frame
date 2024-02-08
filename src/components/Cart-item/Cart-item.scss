@@ -1,0 +1,80 @@
+$box-shadow: 
+-10px -10px 15px rgba(255, 255, 255, 0.829),
+ 10px 10px 15px rgba(70,70,70,0.12),
+inset -10px -10px 15px rgba(255, 255, 255, 0.829), 
+inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+$border: 1px solid #fff;
+
+.product-card-container {
+  width: 200px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+
+  .img-container{
+    width:180px;
+    height: 250px;
+
+    img {
+      width: 180px;
+      height: 250px;
+      object-fit: cover;
+      margin-top: 10px;
+      margin-left: 10px;
+      border-radius: 10px;
+    }
+  }
+
+  .footer {
+    width:200px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    .name {
+      width: 90%;
+      margin-bottom: 20px;
+      margin-left: 8px;
+    }
+    .holder{
+      display: flex;
+    }
+    input {
+      border: none;
+      width:130px;
+      border: $border;
+      border-radius: 10px;
+      padding-left: 6px;
+      margin-top: 5px;
+      margin-left: 6px;
+      box-shadow:$box-shadow;
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+    button {
+      width:40px;
+      border:$border;
+      background-color: #fff;
+      margin-top: 5px;
+      margin-left: 10px;
+      border-radius: 10px;
+      box-shadow:$box-shadow;
+
+      &:hover {
+        background: #f3f3f3;
+      }
+    }
+    .shopping-icon {
+      width: 24px;
+      height: 24px;
+      color: #fff;
+    }
+  }
+}
