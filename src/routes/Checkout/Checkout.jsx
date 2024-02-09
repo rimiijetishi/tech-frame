@@ -6,7 +6,7 @@ import './Checkout.scss'
 
 const Checkout = () => {
   const {cartItems} = useContext(CartContext)
-
+console.log(cartItems)
   const items = cartItems.map((item) => ({
     ...item,
     priceWithVat: parseFloat((item.price * (1 + item.VAT)).toFixed(2)),
@@ -23,7 +23,7 @@ const Checkout = () => {
     <div className="checkout-container" id="paid">
       <h1>ITEMS AND PRICE</h1>
       {invoices.map((invoice, index) => (
-        <table className="my-table" key={invoice.id1}>
+        <table className="my-table" key={invoice.id}>
           <thead>
             <tr>
               <th colSpan='6'>Invoice: {index + 1}</th>

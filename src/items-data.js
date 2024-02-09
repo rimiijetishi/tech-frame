@@ -6,7 +6,6 @@ export default [
     "price": 0.25,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 2,
@@ -15,7 +14,6 @@ export default [
     "price": 2.40,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 3,
@@ -24,7 +22,6 @@ export default [
     "price": 760,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 4,
@@ -33,7 +30,6 @@ export default [
     "price": 0.50,
     "VAT": 0.18,
     "discount": 0.10,
-    "quantity": 0
   },
   {
     "id": 5,
@@ -42,7 +38,6 @@ export default [
     "price": 1.25,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 6,
@@ -60,7 +55,6 @@ export default [
     "price": 8.30,
     "VAT": 0.18,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 8,
@@ -69,7 +63,6 @@ export default [
     "price": 2.66,
     "VAT": 0.18,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 9,
@@ -78,7 +71,6 @@ export default [
     "price": 9.20,
     "VAT": 0.18,
     "discount": 0.02,
-    "quantity": 0
   },
   {
     "id": 10,
@@ -87,7 +79,6 @@ export default [
     "price": 1.25,
     "VAT": 0.22,
     "discount": 0,
-    "quantity":0
   },
   {
     "id": 11,
@@ -96,7 +87,6 @@ export default [
     "price": 9.78,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 12,
@@ -105,7 +95,6 @@ export default [
     "price": 8.30,
     "VAT": 0.18,
     "discount": 0.02,
-    "quantity": 0
   },
   {
     "id": 13,
@@ -114,7 +103,6 @@ export default [
     "price": 5.46,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 14,
@@ -123,7 +111,6 @@ export default [
     "price": 1.34,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 15,
@@ -132,7 +119,6 @@ export default [
     "price": 0.66,
     "VAT": 0.18,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 16,
@@ -141,7 +127,6 @@ export default [
     "price": 1.23,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 17,
@@ -150,7 +135,6 @@ export default [
     "price": 0.21,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 18,
@@ -159,7 +143,6 @@ export default [
     "price": 0.16,
     "VAT": 0.18,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 19,
@@ -168,7 +151,6 @@ export default [
     "price": 0.05,
     "VAT": 0.18,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 20,
@@ -177,7 +159,6 @@ export default [
     "price": 1.12,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 21,
@@ -186,7 +167,6 @@ export default [
     "price": 8.10,
     "VAT": 0.08,
     "discount": 0,
-    "quantity": 0
   },
   {
     "id": 22,
@@ -195,6 +175,5 @@ export default [
     "price": 12,
     "VAT": 0.22,
     "discount": 0,
-    "quantity": 0
   }
 ]

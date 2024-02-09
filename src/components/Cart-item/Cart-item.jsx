@@ -28,7 +28,7 @@ const CartItem = ({ product }) => {
           <span className='name'>{name} x {price}</span>
           <div className='holder'>
             <input type='number' placeholder='Enter the amount' onChange={onChangeHandler} value={inputQuantity}/>
-            <button><ShoppingIcon onClick={addProductsToCart} className='shopping-icon'/></button>
+            <button onClick={addProductsToCart}><ShoppingIcon className='shopping-icon'/></button>
           </div>
           </span>
         </div>

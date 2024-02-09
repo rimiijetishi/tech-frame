@@ -5,14 +5,14 @@ export const generateInvoices = (items) => {
   
 
   invoiceGenerator(items);
-  return invoices;
+  return invoices
   
   function invoiceGenerator(items) {
     items.forEach((item) => {
       if (item.priceWithVat >= 500) {
         for (let i = 0; i < item.quantity; i++) {
           invoices.push({
-            id: new Date().getTime(),
+            id: invoices.indexOf +1,
             items: [{
               ...item,
               quantity: 1,
@@ -26,15 +26,14 @@ export const generateInvoices = (items) => {
 
       if (!ongoingInvoice || ongoingInvoice.totalPrice >= 500) {
         ongoingInvoice = {
-          id: new Date().getTime(),
+          id: invoices.indexOf +1,
           items: [],
           totalPrice: 0,
           subTotalPrice: 0,
         };
         
       }
-      return addItemsInInvoice(item);
-      
+      addItemsInInvoice(item);
     });
 
     if (ongoingInvoice && ongoingInvoice.items.length > 0) {
@@ -72,7 +71,7 @@ export const generateInvoices = (items) => {
       } else {
         invoices.push(ongoingInvoice);
         ongoingInvoice = {
-          id: new Date().getTime(),
+          id: invoices.indexOf +1,
           items: [{
             ...item,
             quantity: 1,
