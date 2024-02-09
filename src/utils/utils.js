@@ -2,7 +2,11 @@ export const generateInvoices = (items) => {
   const invoices = [];
   let uninvoicedItems = [];
   let ongoingInvoice = null;
+  
 
+  invoiceGenerator(items);
+  return invoices;
+  
   function invoiceGenerator(items) {
     items.forEach((item) => {
       if (item.priceWithVat >= 500) {
@@ -25,20 +29,20 @@ export const generateInvoices = (items) => {
           id: new Date().getTime(),
           items: [],
           totalPrice: 0,
-          subTotalPrice: 0, // Added subTotalPrice initialization
+          subTotalPrice: 0,
         };
+        
       }
-
-      addItemsInInvoice(item);
+      return addItemsInInvoice(item);
+      
     });
 
     if (ongoingInvoice && ongoingInvoice.items.length > 0) {
       invoices.push({ ...ongoingInvoice });
-      ongoingInvoice = null; // Reset ongoingInvoice after pushing
+      ongoingInvoice = null;
     }
 
     if (uninvoicedItems.length > 0) {
-      // Copy the uninvoicedItems array before recursion
       const newItems = [...uninvoicedItems];
       uninvoicedItems = [];
       invoiceGenerator(newItems);
@@ -66,7 +70,7 @@ export const generateInvoices = (items) => {
         ongoingInvoice.totalPrice += parseFloat(item.priceWithVat);
         ongoingInvoice.subTotalPrice += parseFloat(item.price - item.discount);
       } else {
-        invoices.push(ongoingInvoice );
+        invoices.push(ongoingInvoice);
         ongoingInvoice = {
           id: new Date().getTime(),
           items: [{
@@ -76,9 +80,12 @@ export const generateInvoices = (items) => {
           totalPrice: parseFloat(item.priceWithVat),
           subTotalPrice: parseFloat(item.price - item.discount),
         };
+        
       }
     }
   }
+
+  
 
   function checkIfItemHigherThan50(foundItem) {
     if (foundItem && foundItem.quantity >= 50) {
@@ -89,7 +96,7 @@ export const generateInvoices = (items) => {
       } else {
         uninvoicedItems.push({
           ...foundItem,
-          quantity: 1,
+          quantity:1,
         });
       }
       return true;
@@ -97,9 +104,4 @@ export const generateInvoices = (items) => {
       return false;
     }
   }
-
-  invoiceGenerator(items); // Initial call
-  return invoices;
 };
-
-
